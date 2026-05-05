@@ -7,11 +7,11 @@ describe('My First Test', () => {
     cy.log("The automation has successfuly done ");
 
   })
-  it('Login', () => {
+  it('Registeration', () => {
 
     cy.visit('https://petstore.octoperf.com/actions/Account.action');
     cy.xpath("/html/body/div[2]/div/a").click();
-    cy.xpath("/html/body/div[2]/div/form/table[1]/tbody/tr[1]/td[2]/input").type("lial555555");
+    cy.xpath("/html/body/div[2]/div/form/table[1]/tbody/tr[1]/td[2]/input").type("ram123");
     cy.xpath("/html/body/div[2]/div/form/table[1]/tbody/tr[2]/td[2]/input").clear().type('123');
     cy.xpath('/html/body/div[2]/div/form/table[1]/tbody/tr[3]/td[2]/input').type('123');
     cy.xpath("/html/body/div[2]/div/form/table[2]/tbody/tr[1]/td[2]/input").type("lila");
@@ -29,8 +29,21 @@ describe('My First Test', () => {
     cy.get('input[name="account.listOption"][value="true"]').check()
     cy.get('input[name="account.bannerOption"][value="true"]').check()
     cy.get('input[value="Save Account Information"]').click()
-        cy.log("The automation has successfuly done ");
+    cy.wait(5000);
+    cy.log("The automation Registration has successfuly done ");
 
+
+  })
+  it('LOgin', () => {
+
+    cy.visit('https://petstore.octoperf.com/actions/Account.action;jsessionid=C0D955E9CC8709AC3EC69C47BBC4B35E?signonForm=');
+    cy.xpath("/html/body/div[1]/div[2]/div/a[2]").click(); //login
+    cy.xpath("/html/body/div[2]/div/form/input").should('have.value','Login');
+    cy.xpath("/html/body/div[2]/div/form/p[2]/input[1]").type("ram123");
+    cy.xpath("/html/body/div[2]/div/form/p[2]/input[2]").clear().type("123");
+    cy.wait(5000);
+    cy.xpath("/html/body/div[2]/div/form/input").click();
+    cy.log("successfuly LOgedin ");
 
   })
   
