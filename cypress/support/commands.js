@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import {seletor} from "./selector";
+
+Cypress.Commands.add('login', (username, password) => {
+  cy.visit(seletor.Signin); //login
+  
+  cy.xpath(seletor.username).type(username);
+  cy.xpath(seletor.pass).clear().type(password);
+  cy.xpath(seletor.loginbtn).click();
+  cy.contains('Welcome').should('be.visible');
+})
