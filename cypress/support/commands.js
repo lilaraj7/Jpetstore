@@ -23,3 +23,31 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import {selector} from "./selector";
+Cypress.Commands.add('login', (username, password) => {
+    cy.xpath(selector.signin2).click();
+    cy.xpath(selector.username2).type(username);
+    cy.xpath(selector.password2).clear().type(password);
+
+    cy.xpath("/html/body/div[2]/div/form/input").click();
+   
+});
+// Cypress.Commands.add('login', () => {
+
+//     const USERNAME = Cypress.env('username')
+//     const PASSWORD = Cypress.env('password')
+
+//     cy.xpath(selector.signin2).click()
+
+//     cy.xpath(selector.username2)
+//       .type(USERNAME)
+
+//     cy.xpath(selector.password2)
+//       .clear()
+//       .type(PASSWORD)
+
+//     cy.xpath("/html/body/div[2]/div/form/input")
+//       .click()
+
+// })
