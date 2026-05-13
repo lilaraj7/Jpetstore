@@ -2,12 +2,22 @@ import {selector } from "../../support/selector";
 
 describe('Cart Test', () => {       
 
+  const baseurl = Cypress.env('Url')  
     beforeEach(() => {
     cy.session("Login session", () => {
-        cy.visit('https://petstore.octoperf.com/actions/Catalog.action');
-        cy.login("ram123", "123");
+        cy.visit(baseurl);
+        cy.xpath(selector.Enterthestore).click()
+        //cy.login("ram123", "123");
+      const userrname = Cypress.env("username");
+      const password = Cypress.env("password");
+      
+      cy.login(userrname, password);
+
+      cy.contains('Sign Out')
+      cy.should('be.visible')
 })
-    cy.visit('https://petstore.octoperf.com/actions/Catalog.action');
+    cy.visit(baseurl);
+    cy.xpath(selector.Enterthestore).click()
 })
     it('To add Bulldog to cart', () => {
         cy.xpath(selector.Dogs).click();

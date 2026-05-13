@@ -1,5 +1,13 @@
 {
   "name": "Using fixtures to represent data",
   "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
+  "body": "Fixtures are a great way to mock data for responses to routes",
+  "cy:run": "cypress run",
+  "report:merge": "mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/report.json",
+  "report:generate": "marge cypress/reports/report.json --reportDir cypress/reports/final-report",
+  "test": "npm run cy:run && npm run report:merge && npm run report:generate"
+
 }
+ 
+  
+

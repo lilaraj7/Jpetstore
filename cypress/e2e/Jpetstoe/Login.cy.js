@@ -2,8 +2,10 @@ import { selector } from "../../support/selector";
 
 
 describe('Login Test', () => {
+      const baseurl = Cypress.env('Url')  
     beforeEach(() => {
-        cy.visit('https://petstore.octoperf.com/actions/Catalog.action')
+       cy.visit(baseurl);
+        cy.xpath(selector.Enterthestore).click()
     
     })
     beforeEach(() => {

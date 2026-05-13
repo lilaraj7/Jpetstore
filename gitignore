@@ -1,0 +1,10 @@
+# Environment files
+.env
+.env.*
+
+# Cypress reports
+cypress/reports/
+
+# Cypress videos and screenshots
+cypress/videos/
+cypress/screenshots/

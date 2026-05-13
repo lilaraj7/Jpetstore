@@ -1,5 +1,5 @@
 import { selector } from "../../support/selector";
-// const baseUrl = Cypress.env("Url");
+ const baseUrl = Cypress.env("Url");
  //const url = cypress.env("Url");
 describe("Birds in Cart Test", () => {
   const baseurl = Cypress.env('Url')  
